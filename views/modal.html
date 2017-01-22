@@ -1,0 +1,22 @@
+<div ng-repeat="question in quiz|limitTo:1">
+  <div class="modal-first-box">
+    <span>{{question.statement}}</p>
+    <div ng-if="showTruefalseBut">
+      <button class="modal-true-button" id="true"  type="button" data-ng-click="showAns($event)">True</button>
+      <div class="modal-or-box">
+        OR
+      </div>
+      <button class="modal-false-button" id="false" type="button" data-ng-click="showAns($event)">False</button>
+    </div>
+  </div>
+  <div class="modal-second-box">
+    <div ng-if="showCorrAns">
+      <span>{{question.trueResponse}}</span>
+      <a  ng-click="next(question)"><img class="modal-next-button" src="../images/white_arrow.png"/></a>
+    </div>
+    <div ng-if="showWrongAns">
+      <span>{{question.falseResponse}}</span>
+      <a ng-click="next(question)"><img class="modal-next-button" src="../images/white_arrow.png"/></a>
+    </div>
+  </div>
+</div>

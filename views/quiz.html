@@ -1,0 +1,130 @@
+<div class="animated fadeIn">
+<div class="row">
+      <div id="headerContainer" class="col-md-12">
+        <h3>What is Net Working Capital (NWC)?</h3>
+        <h1>Core Components of Net Working Capital</h1>
+      </div>
+      <div class="col-md-12">
+   <div class="leftTreeParent">The main components of NWC are described on the chart below. Drag components of NWC from below the graph to corresponding descriptions.</div>
+   <div class="treeParent">Net Working Capital</div>
+   <div class="rightTreeParent">You will also be given statements concerning all components and your task is to choose whether the statement is true or false.</div>
+  </div>
+            <div id="treeMargin" class="col-md-12">
+                <div class="tree">
+                    <ul>
+                        <li>
+                            <ul>
+                                <li>
+                                    <div class="squareBox">
+                                        <div id="AccRecPos" class="smallBox" ng-drop="true" ng-drop-success="AccRecDragStop()">
+                                            <div class="animated fadeIn" ng-if="revealAccRec">
+                                                <div class="circleAddPos"><div id="crossPos"></div></div><div class="posMargin">{{dragAccRec[0].name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="bigBox" ng-drop="true" ng-drop-success="AccRecDragStop()">
+                                        {{data.accounts_receivable.description}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="squareBox">
+                                        <div id="InventoryPos" class="smallBox" ng-drop="true" ng-drop-success="InventoryDragStop()">
+                                            <div class="animated fadeIn" ng-if="revealInventory">
+                                                <div class="circleAddPos"><div id="crossPos"></div></div><div class="posMargin">{{dragInventory[0].name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="bigBox" ng-drop="true" ng-drop-success="InventoryDragStop()">
+                                        {{data.inventory.description.first}}
+                                        <div ng-repeat="key in data.inventory.description.elements">
+                                            <span id="invKeys">&#9679&nbsp&nbsp{{key.point}}</span>
+                                        </div>
+                                        {{data.inventory.description.second}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="squareBox">
+                                        <div id="AccPayPos" class="smallBox" ng-drop="true" ng-drop-success="AccPayDragStop()">
+                                            <div class="animated fadeIn" ng-if="revealAccountsPay">
+                                                <div class="circleSubPos"><div id="linePos"></div></div><div class="posMargin">{{dragAccPay[0].name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="bigBox" ng-drop="true" ng-drop-success="AccPayDragStop()">
+                                        {{data.accounts_payable.description}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="squareBox">
+                                        <div id="AdvRecPos" class="smallBox" ng-drop="true" ng-drop-success="AdvRecDragStop()">
+                                            <div class="animated fadeIn" ng-if="revealAdvanceRec">
+                                                <div class="circleSubPos"><div id="linePos"></div></div><div class="posMargin">Advances received</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="bigBox" ng-drop="true" ng-drop-success="AdvRecDragStop()">
+                                        {{data.advances_received.description}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div id="puzzleContainer" class="row">
+            <div class="col-md-4">
+                <div id="firstPuzBox" class="puzzleBox">
+                    <div ng-repeat="dragged in dragAccRec">
+                        <div id="AccRecBox" class="innerPuzzleBox" ng-drag="true" ng-drag-data="dragged" ng-drag-success="onDrag($data,$event)" ng-center-anchor="true">
+                            <div class="text-center">
+                                {{dragged.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="puzzleBox">
+                    <div ng-repeat="dragged in dragAccPay">
+                        <div id="AccPayBox" class="innerPuzzleBox" ng-drag="true" ng-drag-data="dragged" ng-drag-success="onDrag($data,$event)" ng-center-anchor="true">
+                            <div>
+                                {{dragged.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="puzzleBox">
+                    <div ng-repeat="dragged in dragAdvRec">
+                        <div id="AdvRecBox" class="innerPuzzleBox" ng-drag="true" ng-drag-data="dragged" ng-drag-success="onDrag($data,$event)" ng-center-anchor="true">
+                            <div>
+                                {{dragged.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="puzzleBox">
+                    <div ng-repeat="dragged in dragInventory">
+                        <div id="inventoryBox" class="innerPuzzleBox" ng-drag="true" ng-drag-data="dragged" ng-drag-success="onDrag($data,$event)" ng-center-anchor="true">
+                            <div>
+                                {{dragged.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div  class="col-md-1">
+                <a ng-if="showWayToHome" href="#/">
+                  <img id="returnHome" src="../images/normal_arrow.png"/>
+                </a>
+              </div>
+        </div>
+   </div>
+</div>
