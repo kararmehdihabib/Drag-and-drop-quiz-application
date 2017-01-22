@@ -98,8 +98,8 @@
    },
    {
      "statement":"The target should always be minimizing the inventory.",
-     "trueResponse": "Incorrect. This statement is not true. You should naturally minimize <b>excess</b> inventory. However, inventory is needed and the optimal level varies depending on e.g. the agreed service levels, the cost of procurement and the criticality of the components.",
-     "falseResponse": "Correct! This statement is not true. You should naturally minimize <b>excess</b> inventory. However, inventory is needed and the optimal level varies depending on e.g. the agreed service levels, the cost of procurement and the criticality of the components."
+     "trueResponse": "Incorrect. This statement is not true. You should naturally minimize excess inventory. However, inventory is needed and the optimal level varies depending on e.g. the agreed service levels, the cost of procurement and the criticality of the components.",
+     "falseResponse": "Correct! This statement is not true. You should naturally minimize excess inventory. However, inventory is needed and the optimal level varies depending on e.g. the agreed service levels, the cost of procurement and the criticality of the components."
    }
 
  ]
