@@ -6,7 +6,7 @@ note: After starting the server, zoom in to fit your screen as it is originally 
 ```bash
 npm install
 ```
-## 4. Start webserver without watch task
+## 4. Start webserver
 ```bash
 gulp server
 ```
