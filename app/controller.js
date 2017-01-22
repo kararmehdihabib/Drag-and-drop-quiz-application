@@ -18,7 +18,8 @@
     $scope.revealAccountsPay= false;
     $scope.revealAdvanceRec= false;
     $scope.showWayToHome = false;
-    $scope.draggedItemNames=[];
+    $scope.draggedItemNames=[]; //for tracking dragged item names
+    $scope.quizes = []; //for tracking quizes
 
 
     //Parsing data from quiz.json
@@ -62,7 +63,7 @@
       $scope.draggedItemNames.push(data.name);
 
     //reveal the way to home button after the quiz
-      if($scope.draggedItemNames.length===4){
+      if($scope.draggedItemNames.length>3 && $scope.quizes.length===9){
         $scope.showWayToHome = true;
       }
     };
@@ -71,32 +72,32 @@
     $scope.AccRecDragStop= function(){
       if($scope.draggedItemName === "Accounts receivable"){
         hide($scope.draggedItemName);
-        $scope.open($scope.draggedItemName);
+        $scope.open($scope.draggedItemName,$scope.quizes);
       }
     };
 //Function to do actions after "Accounts payable" box is taken to correct position
     $scope.AccPayDragStop= function(){
       if($scope.draggedItemName === "Accounts payable"){
         hide($scope.draggedItemName);
-        $scope.open($scope.draggedItemName);
+        $scope.open($scope.draggedItemName,$scope.quizes);
       }
     };
 //Function to do actions after "Advances received (and progress payments)" box is taken to correct position
     $scope.AdvRecDragStop= function(){
       if($scope.draggedItemName === "Advances received (and progress payments)"){
         hide($scope.draggedItemName);
-        $scope.open($scope.draggedItemName);
+        $scope.open($scope.draggedItemName,$scope.quizes);
       }
     };
 //Function to do actions after "Inventory" box is taken to correct position
     $scope.InventoryDragStop= function(){
       if($scope.draggedItemName === "Inventory"){
         hide($scope.draggedItemName);
-        $scope.open($scope.draggedItemName);
+        $scope.open($scope.draggedItemName,$scope.quizes);
       }
     };
 
-    $scope.open = function(name) {
+    $scope.open = function(name, quizes) {
       var modalInstance = $modal.open({
         templateUrl: 'views/modal.html',
         controller:  modalCtrl,
@@ -127,6 +128,7 @@
       };
      //Function to show next quiz
       $scope.next = function (quiz) {
+          quizes.push(quiz);
        $scope.quiz.splice($scope.quiz.indexOf(quiz), 1);
        $scope.showCorrAns = false;
        $scope.showWrongAns = false;
