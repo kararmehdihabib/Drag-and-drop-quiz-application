@@ -121,7 +121,7 @@ h3{
 
 #rec3{
   width:330px;
-  height:auto;
+  height:82px;;
   border:none;
   background:  #0099cc;
   color:white;
@@ -253,9 +253,9 @@ h3{
     border: none;
     background: #595959;
     color: white;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
-    padding: 14px 0px 10px 10px;
+    padding: 15px 0px 10px 14px;
 		margin: 100px 0 0 8px;
     line-height: normal;
     display: inline-block;
